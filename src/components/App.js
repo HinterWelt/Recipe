@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import Recipe from './Recipe';
+import React, { Component } from 'react';
 
+import Recipe from './Recipe';
+import Navigation from './Navigation';
 
 class App extends Component {
   constructor(props) {
@@ -48,7 +49,7 @@ class App extends Component {
       });
     }
   }
-
+  
   render() {
     let recipeToSelect;
     if(this.state.selectedRecipe) { 
@@ -61,7 +62,11 @@ class App extends Component {
       <div className="App">
         <aside className='sidebar'>
           <h1 className='sidebar__title'>Recipe Book</h1>
-          
+          <Navigation 
+            recipes={this.state.recipes}
+            activeRecipe={this.state.selectedRecipe}
+            recipeToSelect={this.selectNewRecipe}
+          />
         </aside>
         {
           recipeToSelect ? 
@@ -77,7 +82,7 @@ class App extends Component {
     );
   }
 
-   componentDidMount() {
+  componentDidMount() {
     const recipeToShow = this.state.recipes[0].id || null;
     this.setState({
       ...this.state,
