@@ -1,2 +1,2 @@
 # Recipe
-Recipe tutorial written in REACT with Docker
+Recipe viewer written in REACT with Docker
